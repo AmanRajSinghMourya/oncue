@@ -1,0 +1,70 @@
+name: Release DMG
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Optional release tag to create, for example v0.1.0. Leave empty to only upload a workflow artifact."
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build-dmg:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Build unsigned DMG
+        run: Scripts/package_dmg.sh
+
+      - name: Verify DMG
+        run: hdiutil verify dist/OnCue.dmg
+
+      - name: Upload DMG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: OnCue-dmg
+          path: dist/OnCue.dmg
+          if-no-files-found: error
+
+      - name: Publish tag release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          notes="Unsigned macOS DMG. After dragging OnCue.app to Applications, users may need to right-click the app and choose Open the first time."
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" dist/OnCue.dmg --clobber
+          else
+            gh release create "$tag" dist/OnCue.dmg \
+              --title "OnCue $tag" \
+              --notes "$notes"
+          fi
+
+      - name: Publish manual release
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.tag != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${{ github.event.inputs.tag }}"
+          notes="Unsigned macOS DMG. After dragging OnCue.app to Applications, users may need to right-click the app and choose Open the first time."
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" dist/OnCue.dmg --clobber
+          else
+            gh release create "$tag" dist/OnCue.dmg \
+              --target "$GITHUB_SHA" \
+              --title "OnCue $tag" \
+              --notes "$notes"
+          fi

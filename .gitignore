@@ -1,0 +1,17 @@
+.DS_Store
+*.mp4
+*.mov
+DerivedData/
+build/
+dist/
+*.dmg
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xccheckout
+*.moved-aside
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.xcresult
+xcuserdata/
