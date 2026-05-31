@@ -11,10 +11,8 @@ No accounts. No OAuth. No telemetry.
 Inspired by [@conniecodes](https://www.instagram.com/conniecodes/).
 
 ## Demo
+https://github.com/user-attachments/assets/f410c9e4-0b80-4b5b-810d-2c3bcad738f1
 
-<video src="docs/demo.mp4" controls muted playsinline width="100%"></video>
-
-[Open the demo MP4](https://github.com/AmanRajSinghMourya/oncue/raw/main/docs/demo.mp4)
 
 ## Screenshots
 
