@@ -10,9 +10,13 @@ Inspired by [@conniecodes](https://www.instagram.com/conniecodes/).
 
 ## Demo
 
-[Watch the demo MP4](https://github.com/AmanRajSinghMourya/oncue/raw/main/docs/demo.mp4)
+<video src="docs/demo.mp4" controls muted playsinline width="100%"></video>
 
-Screenshots: [Calendar](docs/calendar.png) · [Settings](docs/settings.png)
+## Screenshots
+
+| Calendar | Settings |
+| --- | --- |
+| ![OnCue calendar view](docs/calendar.png) | ![OnCue settings view](docs/settings.png) |
 
 ## Features
 
