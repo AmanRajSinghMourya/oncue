@@ -10,6 +10,12 @@ Inspired by [@conniecodes](https://www.instagram.com/conniecodes/).
 
 Demo recording: [watch the reminder animation](docs/demo.mp4).
 
+## Screenshots
+
+| Calendar | Settings |
+| --- | --- |
+| ![OnCue calendar view](docs/calendar.png) | ![OnCue settings view](docs/settings.png) |
+
 ## Features
 
 - 🐥 **Animated reminders** — A tiny runner with a banner crosses your main display N minutes before each meeting.

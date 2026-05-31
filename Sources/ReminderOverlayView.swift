@@ -19,14 +19,14 @@ struct ReminderOverlayView: View {
     @State private var hasStarted = false
 
     private let bannerGreen = Color(red: 8 / 255, green: 194 / 255, blue: 37 / 255)
-    private let flightDuration: Double = 12.0
+    private let flightDuration: Double = 18.0
 
     var body: some View {
         GeometryReader { geo in
             let offscreenPadding = max(geo.size.width * 0.35, 760)
 
             TimelineView(.animation) { timeline in
-                let bob = sin(timeline.date.timeIntervalSinceReferenceDate * 2.8) * 8
+                let bob = sin(timeline.date.timeIntervalSinceReferenceDate * 2.0) * 3
 
                 reminderBanner
                     .offset(y: geo.size.height * 0.28 + bob)
@@ -56,9 +56,12 @@ struct ReminderOverlayView: View {
             Text("\(meetingTitle) in \(minutesUntil) min")
                 .font(.system(size: 22, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)
+                .monospacedDigit()
                 .lineLimit(1)
                 .truncationMode(.tail)
-                .frame(maxWidth: 460)
+                .fixedSize(horizontal: true, vertical: false)
+                .frame(maxWidth: 360, alignment: .leading)
+                .clipped()
                 .padding(.horizontal, 22)
                 .padding(.vertical, 12)
                 .background(
@@ -76,6 +79,7 @@ struct ReminderOverlayView: View {
                 .shadow(color: .black.opacity(0.25), radius: 4, y: 2)
         }
         .fixedSize()
+        .compositingGroup()
     }
 
     @ViewBuilder

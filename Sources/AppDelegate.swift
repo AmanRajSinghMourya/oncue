@@ -106,9 +106,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     func previewReminder() {
         let demo = CalendarEvent(
             id: "test-\(UUID().uuidString)",
-            title: "Test meeting",
-            startDate: Date().addingTimeInterval(TimeInterval(settings.leadTimeMinutes * 60)),
-            endDate: Date().addingTimeInterval(TimeInterval(settings.leadTimeMinutes * 60 + 1800)),
+            title: "standup meeting",
+            startDate: Date().addingTimeInterval(5 * 60),
+            endDate: Date().addingTimeInterval(35 * 60),
             source: .apple,
             calendarName: "Test"
         )
