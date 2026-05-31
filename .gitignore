@@ -1,5 +1,7 @@
 .DS_Store
+ONCUE_LAUNCH_KIT.md
 *.mp4
+!docs/demo.mp4
 *.mov
 DerivedData/
 build/

@@ -1,10 +1,14 @@
-# 🐥 OnCue
+# OnCue
 
-A tiny macOS menu-bar app that sends a playful animated reminder with a banner across your screen before every calendar meeting — even on top of full-screen Zoom calls.
+OnCue is a tiny local-only macOS menu-bar app that turns calendar reminders into a playful screen flyby.
+
+A small runner crosses your display with the meeting name before your next event, even over full-screen calls. No accounts, no OAuth, no telemetry.
 
 Inspired by [@conniecodes](https://www.instagram.com/conniecodes/).
 
 ![OnCue reminder preview](docs/screenshot.png)
+
+Demo recording: [watch the reminder animation](docs/demo.mp4).
 
 ## Features
 
@@ -55,15 +59,6 @@ Create a local DMG:
 ```sh
 Scripts/package_dmg.sh
 ```
-
-Create a GitHub Release DMG:
-
-```sh
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-The release workflow builds `dist/OnCue.dmg`, verifies it with `hdiutil`, uploads it as a workflow artifact, and attaches it to the GitHub Release.
 
 ## Usage
 
