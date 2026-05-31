@@ -1,8 +1,10 @@
 # OnCue
 
-OnCue is a local-only macOS menu-bar app that turns calendar reminders into a playful screen flyby.
+Meetings should not start with a panic tab search.
 
-A small runner crosses your display with the meeting name before your next event, even over full-screen calls.
+OnCue lives in your Mac menu bar and sends a tiny runner across your screen before your next calendar event, carrying the meeting name on a bright banner. It is playful enough to notice, quiet enough to stay out of your way, and visible even when you are buried in a full-screen call, IDE, or browser.
+
+Built for people who want useful reminders without another account, cloud sync, or calendar bot. OnCue reads Apple Calendar locally, imports `.ics` files, and keeps everything on your Mac.
 
 No accounts. No OAuth. No telemetry.
 
