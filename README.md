@@ -33,7 +33,7 @@ Inspired by [@conniecodes](https://www.instagram.com/conniecodes/).
 
 ## Install
 
-If a GitHub Release has a DMG attached:
+Download the latest DMG from [GitHub Releases](https://github.com/AmanRajSinghMourya/oncue/releases/latest):
 
 1. Download `OnCue.dmg`.
 2. Open it.
