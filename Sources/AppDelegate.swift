@@ -88,8 +88,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         isReminderAnimationActive = true
         let overlay = OverlayWindow(screen: screen)
         overlays.append(overlay)
+        let title = event.displayTitle
+        NSLog("OnCue reminder: title='%@' source='%@' calendar='%@'", title, event.source.rawValue, event.calendarName)
         overlay.showReminder(
-            title: event.title,
+            title: title,
             minutesUntil: event.minutesUntil,
             reminderImageURL: ReminderImageStore.shared.displayImageURL(),
             playSound: settings.soundEnabled,

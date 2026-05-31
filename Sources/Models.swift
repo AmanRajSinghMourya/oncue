@@ -21,6 +21,11 @@ struct CalendarEvent: Identifiable, Hashable {
     var minutesUntil: Int {
         max(0, Int(startDate.timeIntervalSinceNow / 60))
     }
+
+    var displayTitle: String {
+        let trimmed = title.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? "Untitled event" : trimmed
+    }
 }
 
 enum EventSource: String, Codable, CaseIterable {

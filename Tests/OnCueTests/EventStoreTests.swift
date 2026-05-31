@@ -34,4 +34,30 @@ final class EventStoreTests: XCTestCase {
 
         XCTAssertEqual(filtered.map(\.id), ["apple-work", "ics-team"])
     }
+
+    func testCalendarEventDisplayTitleFallsBackForBlankTitles() {
+        let event = CalendarEvent(
+            id: "blank-title",
+            title: "   \n",
+            startDate: Date(),
+            endDate: Date().addingTimeInterval(1800),
+            source: .apple,
+            calendarName: "Work"
+        )
+
+        XCTAssertEqual(event.displayTitle, "Untitled event")
+    }
+
+    func testCalendarEventDisplayTitleTrimsWhitespace() {
+        let event = CalendarEvent(
+            id: "trim-title",
+            title: "  Product sync  ",
+            startDate: Date(),
+            endDate: Date().addingTimeInterval(1800),
+            source: .apple,
+            calendarName: "Work"
+        )
+
+        XCTAssertEqual(event.displayTitle, "Product sync")
+    }
 }

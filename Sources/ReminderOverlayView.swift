@@ -20,6 +20,11 @@ struct ReminderOverlayView: View {
 
     private let bannerGreen = Color(red: 8 / 255, green: 194 / 255, blue: 37 / 255)
     private let flightDuration: Double = 18.0
+    private var displayText: String {
+        let title = meetingTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+        let safeTitle = title.isEmpty ? "Untitled event" : title
+        return "\(safeTitle) in \(minutesUntil) min"
+    }
 
     var body: some View {
         GeometryReader { geo in
@@ -53,15 +58,15 @@ struct ReminderOverlayView: View {
     private var reminderBanner: some View {
         HStack(spacing: -2) {
             // Banner trails behind the reminder image as the group moves left to right.
-            Text("\(meetingTitle) in \(minutesUntil) min")
+            Text(displayText)
                 .font(.system(size: 22, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)
                 .monospacedDigit()
-                .lineLimit(1)
+                .multilineTextAlignment(.leading)
+                .lineLimit(2)
                 .truncationMode(.tail)
-                .fixedSize(horizontal: true, vertical: false)
                 .frame(maxWidth: 360, alignment: .leading)
-                .clipped()
+                .fixedSize(horizontal: false, vertical: true)
                 .padding(.horizontal, 22)
                 .padding(.vertical, 12)
                 .background(
