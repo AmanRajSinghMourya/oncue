@@ -14,6 +14,8 @@ Inspired by [@conniecodes](https://www.instagram.com/conniecodes/).
 
 <video src="docs/demo.mp4" controls muted playsinline width="100%"></video>
 
+[Open the demo MP4](https://github.com/AmanRajSinghMourya/oncue/raw/main/docs/demo.mp4)
+
 ## Screenshots
 
 | Calendar | Settings |
