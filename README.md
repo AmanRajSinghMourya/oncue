@@ -77,13 +77,9 @@ Scripts/package_dmg.sh
 
 ## Privacy & security
 
-- No accounts, no OAuth, no API keys, and no third-party SDKs.
-- No telemetry, analytics, crash reporting, or background uploads.
-- No network client code. The app does not fetch `webcal://`, `http://`, or `https://` calendar URLs itself.
-- Apple Calendar events are read locally through EventKit after macOS permission is granted.
-- Imported `.ics` files are copied into `~/Library/Application Support/OnCue/Calendars/`.
-- A custom reminder image, if chosen, is stored as `~/Library/Application Support/OnCue/reminder-image.png`.
-- Settings are stored in local `UserDefaults`.
+- No accounts, OAuth, telemetry, or analytics.
+- No calendar data is uploaded anywhere.
+- Apple Calendar and imported `.ics` files are read locally on your Mac.
 
 ## Limitations
 
