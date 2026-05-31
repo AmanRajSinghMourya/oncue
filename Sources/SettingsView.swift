@@ -36,6 +36,8 @@ struct SettingsView: View {
                 icsSection
                 Divider()
                 testSection
+                Divider()
+                updatesSection
             }
             .padding(20)
         }
@@ -313,6 +315,28 @@ struct SettingsView: View {
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
+    }
+
+    private var updatesSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Updates").font(.headline)
+            Button {
+                openLatestRelease()
+            } label: {
+                Label("Check for updates", systemImage: "arrow.down.circle")
+            }
+            .buttonStyle(.bordered)
+            .help("Open the latest OnCue release on GitHub.")
+
+            Text("Opens GitHub Releases. OnCue does not check for updates in the background.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    private func openLatestRelease() {
+        guard let url = URL(string: "https://github.com/AmanRajSinghMourya/oncue/releases/latest") else { return }
+        NSWorkspace.shared.open(url)
     }
 }
 

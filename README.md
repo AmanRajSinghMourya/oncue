@@ -46,6 +46,10 @@ Download the latest DMG from [GitHub Releases](https://github.com/AmanRajSinghMo
 
 The GitHub Actions release workflow can publish an unsigned DMG without an Apple Developer account. macOS may require right-click → Open on first launch. A no-warning public install requires Apple Developer ID signing and notarization.
 
+## Updates
+
+OnCue does not auto-update. To update, open **Settings → Check for updates**, download the latest DMG from GitHub Releases, quit OnCue, and replace the app in Applications.
+
 ## Build From Source
 
 1. Clone this repo.
@@ -74,6 +78,7 @@ Scripts/package_dmg.sh
 - Click the icon to open the popover.
 - Set reminder timing, choose an image, manage event sources, import `.ics` files, or preview the animation.
 - Re-importing a `.ics` file with the same filename refreshes it.
+- OnCue only animates for timed events with a real start time. All-day items like holidays and birthdays are ignored, even if they are visible in Apple Calendar.
 
 ## Privacy & security
 
@@ -86,6 +91,7 @@ Scripts/package_dmg.sh
 - macOS only.
 - Main display only — multi-monitor support is on the roadmap.
 - `.ics` imports are snapshots. Re-drop the file to refresh.
+- All-day calendars are ignored because they do not represent a meeting time to count down to.
 - Complex `.ics` recurrence rules are intentionally limited for v0.1.
 
 ## License
